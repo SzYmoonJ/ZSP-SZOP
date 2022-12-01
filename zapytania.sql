@@ -34,3 +34,9 @@ WHERE offers.id="5" AND offers.id NOT IN (SELECT offer_id FROM orders);
 
 #buy - zakup przedmiotu
 INSERT INTO orders (`offer_id`, `user_id`) VALUES ('8','3');
+
+
+##users
+#add_new_user -- dodaje nowego użytkownika
+INSERT INTO users(`email`, `password`, `is_admin`) 
+VALUES ('il@wp.pl','haslo','0');
