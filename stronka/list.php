@@ -6,30 +6,28 @@
     <body>
         <table style="width=auto;background-color:teal;border:5px solid #000;">
                 <tr>
-                    <td style="padding-right: 50px">
-                        <h2><a href="list.php">My offers</a></h2>
-                    </td>
-                    <td>
-                        <h2><a href="index.php">Log out</a></h2>
+                    <td style="border-bottom: solid black;">
+                         <h2><a href="main.php" style="">Main</a></h2>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <h1>Offers</h1>
                         <?php
-                        $con = new mysqli('localhost','root','','zsp-szop');
                         session_start();
-                        $li = 'SELECT offers.offer_name, offers.price, offers.description from offers JOIN users ON offers.user_id=users.id WHERE offers.id NOT IN (SELECT offer_id FROM orders) AND users.email!="'.$_SESSION["user_email"].'";';
+                        $con = new mysqli('localhost','root','','zsp-szop');
+                        $li = 'SELECT offers.id, offers.offer_name, offers.price, offers.description FROM offers JOIN users ON offers.user_id=users.id WHERE users.email="'.$_SESSION["user_email"].'"';
                         $result = $con -> query($li);
                         $list = $result -> fetch_all(MYSQLI_ASSOC);
                         for ($i=0; $i<count($list);$i++){
+                            echo "Id:".'&nbsp'.$list[$i]["id"].'&nbsp';
                             echo $list[$i]["offer_name"].'&nbsp';
-                            echo $list[$i]["price"].'<br> <br>';
+                            echo $list[$i]["price"].'&nbsp';
+                            echo '<b><a href="edit.php">Edit</a></b><br>';
+                            echo "Description:".'&nbsp'.$list[$i]["description"].'<br> <br>';
                         };
                         ?>
                     </td>
                 </tr>
-            </table>
+        </table>
     </body>
 </html>
-

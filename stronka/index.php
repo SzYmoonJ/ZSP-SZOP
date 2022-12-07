@@ -1,6 +1,6 @@
 <html>
     <head>    
-        <title>ZySyPy-SZOP_login</title>
+        <title>ZySyPy-SZOP-login</title>
         <meta charset="UTF-8">
     </head>
     <body>
@@ -19,7 +19,7 @@
                         <label>Email</label>    
                         <input type="text" name="email" id="email" placeholder="Email"><br>
                         <label>Password</label>
-                        <input type="password" name="pass" id="pass"placeholder="Pass"><br> 
+                        <input type="password" name="pass" id="pass" placeholder="Pass"><br> 
                         <button type="submit">Login</button>
                     </td>
                 </tr>
@@ -27,12 +27,13 @@
         </form>
         <?php
             $con = new mysqli('localhost','root','','zsp-szop');
-            session_start();
             if (isset($_POST["email"]) && isset($_POST["pass"])){
-                $t="SELECT id FROM users WHERE email='".$_POST["email"]."' AND password='".$_POST["pass"]."'";
-                $result=$con->query($t);
-                $id=$result->fetch_all(MYSQLI_ASSOC);
+                $t = "SELECT id FROM users WHERE email='".$_POST["email"]."' AND password='".$_POST["pass"]."'";
+                $result = $con->query($t);
+                $id = $result->fetch_all(MYSQLI_ASSOC);
                 if (count($id)>0){
+                        session_start();
+                        $_SESSION["user_email"] = $_POST["email"];
                         header("location:main.php");
                 }
                 else{
@@ -40,6 +41,7 @@
                 
                 };
             };
+        
         ?>
     </body>
 </html>

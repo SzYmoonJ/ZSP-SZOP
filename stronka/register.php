@@ -1,7 +1,7 @@
 <html>
     <head>
     <meta charset="UTF-08">
-    <title>register-ZSPSZOP</title>
+    <title>ZySyPy-SZOP-register</title>
     </head>
     <body>
         <form  method="POST">
@@ -39,7 +39,7 @@
                        $con->query($add);
                        header("location:index.php");
                    }else{
-                     print("Hasła się nie zgadzają");
+                     print("Passwords are not the same");
                    };
                };
             };
