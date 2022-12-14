@@ -7,8 +7,8 @@
         <table style="width=auto;background-color:teal;border:5px solid #000;">
                 <tr>
                     <td style="border-bottom: solid black;">
-                         <h2><a href="main.php" style="">Main</a></h2>
-                    </td>
+                        <h2><a href="main.php" style="">Main</a></h2>
+                    </td> 
                 </tr>
                 <tr>
                     <td>

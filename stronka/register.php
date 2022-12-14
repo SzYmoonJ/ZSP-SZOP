@@ -41,7 +41,9 @@
                    }else{
                      print("Passwords are not the same");
                    };
-               };
+               }else{
+                    print("Email already exist");
+                }
             };
         ?>
     </body>

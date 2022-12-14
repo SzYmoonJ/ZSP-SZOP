@@ -34,6 +34,7 @@
                 if (count($id)>0){
                         session_start();
                         $_SESSION["user_email"] = $_POST["email"];
+                        $_SESSION["user_id"] = $id;
                         header("location:main.php");
                 }
                 else{
@@ -45,6 +46,3 @@
         ?>
     </body>
 </html>
-
-
-                

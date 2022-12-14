@@ -42,7 +42,7 @@
                                 header("Refresh:0");
                             }
                             else{
-                                print("There`s not an offer like that");
+                                print("This offer doesn't exist");
                             };
                     };
                     ?>
