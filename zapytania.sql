@@ -16,8 +16,8 @@ VALUES ('1','Sajber-PUnk2011','Świetna gra fps','150');
 
 ##orders
 #bought_list -- lista moich zakupów
-SELECT orders.user_id, offers.offer_name, offers.price FROM orders 
-JOIN offers ON orders.offer_id=offers.id where orders.user_id="4";
+SELECT orders.user_id, offers.offer_name, offers.price FROM offers 
+JOIN orders ON orders.offer_id=offers.id where orders.user_id="4";
 
 #bought_item_details -- detale zakupionego przedmiotu
 SELECT orders.offer_id, orders.user_id, offers.offer_name, offers.description, offers.price 
